@@ -14,15 +14,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('films', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('username');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->enum('role', [1, 0]);
-            $table->rememberToken();
+            $table->string('title');
+            $table->enum('rating', ['1','2','3']);
+            $table->string('synopsis');
+            $table->string('genre');
+            $table->string('producer');
+            $table->string('production');
+            $table->string('cast');
+            $table->enum('upcoming', ['0','1']);
             $table->timestamps();
         });
     }
@@ -35,7 +36,7 @@ return new class extends Migration
     public function down()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('films');
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 };

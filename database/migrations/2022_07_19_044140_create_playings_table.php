@@ -14,15 +14,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('playings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('username');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->enum('role', [1, 0]);
-            $table->rememberToken();
+            $table->unsignedBigInteger('film_id');
+            $table->unsignedBigInteger('teater_id');
+            $table->unsignedBigInteger('studio_id');
+            $table->date('date');
+            $table->time('time');
+            $table->decimal('price');
             $table->timestamps();
         });
     }
@@ -35,7 +34,7 @@ return new class extends Migration
     public function down()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('playings');
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 };
