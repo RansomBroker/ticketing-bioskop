@@ -14,18 +14,19 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::middleware(['web'])->group(function () {
-
     Route::get('/', function () {
         return view('welcome');
-    })->withoutMiddleware('web');
+    });
+});
 
+Route::withoutMiddleware('web')->group(function () {
 
     // without middleware
     Route::get('/not-login', function () {
         echo "anda belum login";
-    })->withoutMiddleware('web');
-    Route::post('/register/process', [AuthController::class, 'registerUserProcess'])->withoutMiddleware('web');
-    Route::post('admin/register/admin/process', [AuthController::class, 'registerAdminProcess'])->withoutMiddleware('web');
+    });
+    Route::post('/register/process', [AuthController::class, 'registerUserProcess']);
+    Route::post('admin/register/admin/process', [AuthController::class, 'registerAdminProcess']);
 
 
 });
