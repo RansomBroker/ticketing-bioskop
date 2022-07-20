@@ -5,80 +5,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('/css/output.css')}}">
-    <title>Home</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+
+    <title>Home</title>  
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black ">
-      <div class="container-fluid">
-        <a class="navbar-brand me-5" href="#">
-          <img src="img/Logo.png" alt="" width="80" height="70">
-        </a>
-        <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-5 mb-lg-0">
-            <li class="nav-item ms-5">
-              <a class="nav-link active fw-bolder hyperlink-hdr" aria-current="page" href="index">Now Playing</a>
-            </li>
-            <li class="nav-item ms-5">
-              <a class="nav-link  fw-bolder hyperlink-hdr" href="Upcoming">Upcoming</a>
-            </li>
-            <li class="nav-item ms-5">
-              <a class="nav-link fw-bolder hyperlink-hdr" href="about.html">ABOUT</a>
-            </li>
-            <li class="nav-item ms-5">
-              <a class="nav-link fw-bolder hyperlink-hdr" href="confirm.html">PAYMENT CONFIRMATION</a>
-            </li>
-          </ul>
-          <form class="d-flex ms-2 ">
-            <div class="input-group mt-3 mb-3 btn-index">  
-              <input type="text" class="form-control border-0" placeholder="Username" aria-label="Username" >
-              <button class="btn input-group-text bg-white  " type="submit" id="button-addon2"><img src="img/search_icon.png" alt="Search" width="25" height="25"></button>
-            </div>
-          </form>
-          <a href="login" class="btn btn-warning ms-3 ps-3 "> SIGN IN/ SIGN UP  </a>  
-        </div> 
-      </div>
+  <header >
+    <nav class="relative w-full flex flex-wrap items-center justify-between py-3 bg-[#151515] bg-opacity-90 text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light ">
+    <div class="w-full flex justify-between">
+      <div class="flex justify-start items-center">
+          <a class=" mr-5 " href="#">
+            <img class="w-40 " src="{{asset('img/logo.png')}}" alt="" >
+          </a>
+          <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="flex items-center" id="navbarSupportedContent">
+            <ul class="navbar-nav flex list-style-none mr-auto ml-4">
+              <li class="nav-item ml-5">
+                <a class="nav-link active fw-bolder hyperlink-hdr" aria-current="page" href="index">HOME</a>
+              </li>
+              <li class="nav-item ml-5">
+                <a class="nav-link  fw-bolder hyperlink-hdr" href="product.html">PRODUCT</a>
+              </li>
+              <li class="nav-item ml-5">
+                <a class="nav-link fw-bolder hyperlink-hdr" href="about.html">ABOUT</a>
+              </li>
+              <li class="nav-item ml-5">
+                <a class="nav-link fw-bolder hyperlink-hdr" href="confirm.html">PAYMENT CONFIRMATION</a>
+              </li>
+            </ul>
+          </div> 
+        </div>
+        <div class="flex justify-start ">
+          <form class="flex ml-2 grow">
+              <div class="input-group mt-3 mb-3 w-100">  
+                <input type="text" class="border-0" placeholder="Username" aria-label="Username" >
+                <button class="btn input-group-text bg-white  " type="submit" id="button-addon2"></button>
+              </div>
+            </form>
+            <a href="login" class="inline-block  px-6 py-3 bg-[#CCB443] text-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-[#ffc107] hover:shadow-lg focus:bg-[#ffc107] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#ffc107] active:shadow-lg transition duration-150 ease-in-out "> LOGIN </a>
+       </div>
+       </div>  
     </nav>
   </header>
-
-    <div class="container-fluid py-5 d-flex justify-content-center">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                <img src="..." class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="...">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+  <footer class="bg-[#191919] text-center lg:text-left mt-auto">
+    <div class="container p-6 text-[#CCB443]">
+      <div class="grid lg:grid-cols-3 gap-4 justify-between">
+        <div class="mb-6 md:mb-0 col-span-2">
+          <a href="#" class="font-extrabold mb-2 uppercase">Terms of Use </a>
+          <span>|</span>
+          <a href="#" class="font-extrabold mb-2 uppercase">Advertising</a>
+          <p class="mt-4 mb-3 text-justify  text-white text-sm opacity-75">
+          © 1999-2012 21Cineplex.com. All materials and contents (texts, graphics, and every attributes) of 21Cineplex or 21Cineplex.com website are copyrights and trademarks of PT Nusantara Sejahtera Raya.
+          Any commercial usage of the materials and contents is forbidden without prior permission from PT Nusantara Sejahtera Raya. There is no other institutions/agencies outside
+          PT Nusantara Sejahtera Raya allowed to use www.21Cineplex.com (21Cineplex website) without prior permission from PT Nusantara Sejahtera Raya
+          </p>
         </div>
+
+        <div class="mt-5 mb-6 md:mb-0 flex justify-end">
+          <ul class="mt-5 mb-5 flex justify-center items-center col-span-1">
+            <li><a href="https://www.instagram.com/cinema.21/?hl=id"><span class="iconify" data-icon="mdi:instagram" style="color: #ccb443;" data-width="42" data-height="37"></span></a></li>
+            <li><a href="https://www.facebook.com/cinema21/"><span class="iconify" data-icon="fa6-brands:facebook" style="color: #ccb443;" data-width="42" data-height="37"></span></a></li>
+            <li><a href="https://twitter.com/cinema21"><span class="iconify" data-icon="jam:twitter-circle" style="color: #ccb443;" data-width="42" data-height="40"></span></a></li>
+            <li><a href="https://www.youtube.com/user/KanalXXI/videos"><span class="iconify" data-icon="jam:youtube-circle" style="color: #ccb443;" data-width="42" data-height="40"></span></a></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <div class="container-fluid">
-        <div>
-            <span class="bg-primary p-2 text-white fw-bold  m-0 p-0">Now Playing</span>
-            <span class="bg-dark p-2 text-white fw-bold m-0 p-0">Pontianak</span>
-        </div>
-    </div>
+  <div class="text-center text-white p-4 opacity-75" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white " href="index">Cinema XXI</a>
+  </div>
+</footer>
 </body>
 </html>
