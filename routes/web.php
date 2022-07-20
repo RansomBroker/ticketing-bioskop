@@ -27,7 +27,8 @@ Route::withoutMiddleware('web')->group(function () {
     });
     Route::post('/register/process', [AuthController::class, 'registerUserProcess']);
     Route::post('admin/register/admin/process', [AuthController::class, 'registerAdminProcess']);
-
-
+    Route::get('/register', [AuthController::class, 'registerUserView']);
+    Route::get('/login', [AuthController::class, 'loginUserView']);
+    Route::post('/login/process', [AuthController::class, 'loginProcess']);
 });
 
