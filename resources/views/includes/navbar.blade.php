@@ -28,7 +28,7 @@
             <form class="flex flex-row mt-4 md:flex-row md:mt-0 md:text-sm md:font-medium">
                 <input type="text" placeholder="Search..." class="rounded-l pl-2 focus:outline-0">
                 <button class="bg-[#CCB443] p-2 rounded-r hover:bg-[#FFC107]"><span class="iconify text-black text-lg" data-icon="eva:search-outline"></span></button>
-                <a class="inline-block px-6 py-2.5 bg-[#CCB443] text-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-[#ffc107] hover:shadow-lg focus:bg-[#ffc107] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#ffc107] active:shadow-lg transition duration-150 ease-in-out ml-2" href="{{ URL::to('login') }}">Login</a>
+                <a class="inline-block px-6 py-2.5 bg-[#CCB443] text-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-[#ffc107] hover:shadow-lg focus:bg-[#ffc107] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#ffc107] active:shadow-lg transition duration-150 ease-in-out ml-2 drop-shadow-lg shadow-[#CCB443]" href="{{ URL::to('login') }}">Login</a>
             </form>
         </div>
     </div>
