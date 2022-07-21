@@ -31,7 +31,7 @@
                 <p class="text-red-500 mt-1">{{ $message }}</p>
                 @enderror
             </div>
-            <a href="{{ URL::to('/login') }}" class="capitalize text-[#CCB443] drop-shadow-lg font-bold mb-3 text-xs underline">Sudah Punya Akun ? Login Di Sini</a>
+            <a href="{{ URL::to('/regiter') }}" class="capitalize text-[#CCB443] drop-shadow-lg font-bold mb-3 text-xs underline">Belum mempunyai akun ? Register di sini</a>
             <button type="submit" class="transition ease-in-out delay-150 w-full p-2 rounded-md uppercase text-center bg-[#CCB443] font-bold shadow-lg my-3 hover:-translate-y-0.5 hover:scale-105 hover:bg-[#FFC107] cli duration-300">Login</button>
         </form>
     </div>
