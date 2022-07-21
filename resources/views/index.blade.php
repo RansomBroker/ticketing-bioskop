@@ -9,7 +9,7 @@
 <body>
     <div class="flex flex-col min-h-screen bg-[url('/img/background.png')] bg-repeat">
         @include('includes.navbar')
-
+        <p>push kontol</P>
         <div class="w-full p-8">
             <div class="w-full md:3/12 uppercase p-2 flex">
                 <span class="bg-[#CCB443] text-xl font-[800] px-8 py-2">Now Playing</span>
