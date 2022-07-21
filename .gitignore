@@ -15,3 +15,5 @@ yarn-error.log
 /.idea
 /.vscode
 /public/css/output.css
+/public/css/input.css
+/public/img
