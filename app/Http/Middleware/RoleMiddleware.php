@@ -20,7 +20,7 @@ class RoleMiddleware
         if (Auth::check()) {
             return $next($request);
         }
-        return redirect('/not-login');
+        return redirect('login');
 
 
     }
