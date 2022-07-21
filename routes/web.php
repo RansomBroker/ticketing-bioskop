@@ -22,6 +22,26 @@ Route::middleware(['web'])->group(function () {
 Route::withoutMiddleware('web')->group(function () {
 
     // without middleware
+    Route::get('/login',function(){
+        return view('login');
+    });
+    
+    Route::get('/register',function(){
+        return view('register');
+    });
+    
+    Route::get('/ubah-film',function(){
+        return view('ubah-film');
+    });
+    
+    Route::get('/tambah',function(){
+        return view('tambah');
+    });
+    
+    Route::get('/index',function(){
+        return view('index');
+    });
+    
     Route::get('/not-login', function () {
         echo "anda belum login";
     });
