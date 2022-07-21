@@ -7,8 +7,10 @@
     @include('includes.js')
 </head>
 <body>
-    <div class="flex flex-col min-h-screen">
+    <div class="flex flex-col min-h-screen bg-[url('/img/background.png')] bg-repeat">
         @include('includes.navbar')
+
+
         <footer class="bg-[#191919] text-center lg:text-left mt-auto">
             <div class="container p-6 text-[#CCB443]">
                 <div class="grid lg:grid-cols-3 gap-4 justify-between">
