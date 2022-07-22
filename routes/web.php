@@ -22,10 +22,6 @@ Route::middleware(['web'])->group(function () {
 Route::withoutMiddleware('web')->group(function () {
 
     // without middleware
-    Route::get('/index',function(){
-        return view('index');
-    });
-
     Route::get('/profile',function(){
         return view('profile');
     });
@@ -49,14 +45,9 @@ Route::withoutMiddleware('web')->group(function () {
         return view('list-film');
     });
 
-    Route::get('/termsofuse',function(){
-        return view('termsofuse');
-    });
-
     Route::get('/not-login', function () {
         echo "anda belum login";
     });
-    
     Route::post('/register/process', [AuthController::class, 'registerUserProcess']);
     Route::post('admin/register/admin/process', [AuthController::class, 'registerAdminProcess']);
     Route::get('/register', [AuthController::class, 'registerUserView']);
