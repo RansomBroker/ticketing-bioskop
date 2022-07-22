@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\IndexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,24 +16,22 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::middleware(['web'])->group(function () {
-    Route::get('/',function(){
-        return view('index');
-    });
+    Route::get('/', [IndexController::class, 'index']);
+
+    // logout
+    Route::get('logout', [AuthController::class, 'logout']);
 
     Route::middleware(['admin.check'])->group(function () {
         Route::controller(AdminController::class)->group(function (){
 
-            Route::get('/ubah-film',function(){
-                return view('ubah-film');
-            });
+            Route::get('/edit-film/{id}', 'editFilmView');
+            Route::post('/edit-film/process', 'editFilmProcess');
 
 
             Route::get('/add-new-film', 'addNewFilmView');
             Route::post('/add-new-film/process', 'addNewFilmProcess');
 
-            Route::get('/list-film',function(){
-                return view('list-film');
-            });
+            Route::get('/list-film', 'listFilmView');
         });
     });
 });

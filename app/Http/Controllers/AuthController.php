@@ -86,4 +86,12 @@ class AuthController extends Controller
         $user->role = '1';
         $user->save();
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('login');
+    }
 }

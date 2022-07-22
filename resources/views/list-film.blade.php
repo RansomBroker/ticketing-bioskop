@@ -21,28 +21,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr >
-                            <td class="py-4 px-6">
-                                <img src="img/Perjalanan Pertama.jpg" class="">
-                            </td>
-                            <td>Perjalanan Pertama</td>
-                            <td class="py-4 px-6">
-                                <a class="" href="edit-film.php">Edit</a>
-                                    ||
-                                <a class="" href="#">Hapus</a>
-                            </td>
-                        </tr>
-                            <tr  >
+                        @foreach($films as $film)
+                            <tr>
                                 <td class="py-4 px-6">
-                                    <img src="img/Everything Everywhere All at Once.jpg" class="">
+                                    <img src="{{ asset('/img/'.$film->img) }}" class="w-20 text-center">
                                 </td>
-                                <td>Everything Everywhere All At Once</td>
+                                <td>{{$film->title}}</td>
                                 <td class="py-4 px-6">
-                                    <a class="" href="edit-film.php">Edit</a>
+                                    <a class="" href="{{URL::to('edit-film/'.$film->id)}}">Edit</a>
                                     ||
                                     <a class="" href="#">Hapus</a>
                                 </td>
                             </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </table>
