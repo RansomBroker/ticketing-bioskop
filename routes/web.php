@@ -38,6 +38,10 @@ Route::withoutMiddleware('web')->group(function () {
         return view('tambah');
     });
 
+    Route::get('/list-film',function(){
+        return view('list-film');
+    });
+
     Route::get('/not-login', function () {
         echo "anda belum login";
     });
@@ -47,4 +51,5 @@ Route::withoutMiddleware('web')->group(function () {
     Route::get('/login', [AuthController::class, 'loginUserView']);
     Route::post('/login/process', [AuthController::class, 'loginProcess']);
 });
+
 
