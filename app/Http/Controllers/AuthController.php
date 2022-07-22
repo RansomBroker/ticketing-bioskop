@@ -58,7 +58,7 @@ class AuthController extends Controller
         $user->save();
 
         //login user
-        return back('login');
+        return redirect('login');
     }
 
     public function registerAdminProcess(Request $request)

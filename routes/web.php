@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,23 @@ Route::middleware(['web'])->group(function () {
     Route::get('/',function(){
         return view('index');
     });
+
+    Route::middleware(['admin.check'])->group(function () {
+        Route::controller(AdminController::class)->group(function (){
+
+            Route::get('/ubah-film',function(){
+                return view('ubah-film');
+            });
+
+
+            Route::get('/add-new-film', 'addNewFilmView');
+            Route::post('/add-new-film/process', 'addNewFilmProcess');
+
+            Route::get('/list-film',function(){
+                return view('list-film');
+            });
+        });
+    });
 });
 
 Route::withoutMiddleware('web')->group(function () {
@@ -30,21 +48,6 @@ Route::withoutMiddleware('web')->group(function () {
         return view('register');
     });
 
-    Route::get('/ubah-film',function(){
-        return view('ubah-film');
-    });
-
-    Route::get('/tambah',function(){
-        return view('tambah');
-    });
-
-    Route::get('/list-film',function(){
-        return view('list-film');
-    });
-
-    Route::get('/not-login', function () {
-        echo "anda belum login";
-    });
     Route::post('/register/process', [AuthController::class, 'registerUserProcess']);
     Route::post('admin/register/admin/process', [AuthController::class, 'registerAdminProcess']);
     Route::get('/register', [AuthController::class, 'registerUserView']);
