@@ -11,7 +11,7 @@
         <div class="navbar-toggle hidden w-full md:block md:w-auto" id="navbar-default">
             <ul class="flex flex-col mt-4 md:flex-row md:space-x-2 md:mt-0 md:text-sm md:font-medium">
                 <li>
-                    <a href="index" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Now Playing</a>
+                    <a href="#" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Now Playing</a>
                 </li>
                 <li>
                     <a href="#" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Upcoming</a>
@@ -20,7 +20,7 @@
                     <a href="#" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Theater</a>
                 </li>
                 <li>
-                    <a href="profile" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Profile</a>
+                    <a href="#" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Profile</a>
                 </li>
             </ul>
         </div>
