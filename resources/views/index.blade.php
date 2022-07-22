@@ -76,7 +76,7 @@
             <div class="container p-6 text-[#CCB443]">
                 <div class="grid lg:grid-cols-3 gap-4 justify-between">
                     <div class="mb-6 md:mb-0 col-span-2">
-                        <a href="#" class="font-extrabold mb-2 uppercase">Terms of Use </a>
+                        <a href="termsofuse" class="font-extrabold mb-2 uppercase">Terms of Use </a>
                         <span>|</span>
                         <a href="#" class="font-extrabold mb-2 uppercase">Advertising</a>
                         <p class="mt-4 mb-3 text-justify  text-white text-sm opacity-75">
