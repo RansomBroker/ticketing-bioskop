@@ -39,6 +39,9 @@ Route::middleware(['web'])->group(function () {
 Route::withoutMiddleware('web')->group(function () {
 
     // without middleware
+    Route::get('/profile',function(){
+        return view('profile');
+    });
     Route::get('/login',function(){
         return view('login');
     });
