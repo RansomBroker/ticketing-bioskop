@@ -21,7 +21,7 @@
                         <a href="#" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Theater</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Profile</a>
+                        <a href="{{ URL::to('/profile')  }}" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Profile</a>
                     </li>
                 @endif
 
@@ -36,7 +36,7 @@
                             <a href="#" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Theater</a>
                         </li>
                         <li>
-                            <a href="#" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Profile</a>
+                            <a href="{{ URL::to('/profile')  }}" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Profile</a>
                         </li>
                     @endif
             </ul>

@@ -38,6 +38,14 @@ Route::middleware(['web'])->group(function () {
 
 Route::withoutMiddleware('web')->group(function () {
 
+    Route::get('/term-of-use', function () {
+        return view('terms-of-use');
+    });
+
+    Route::get('/profile', function () {
+        return view('profile');
+    });
+
     // without middleware
     Route::get('/profile',function(){
         return view('profile');
