@@ -17,3 +17,4 @@ yarn-error.log
 /public/css/output.css
 /public/css/input.css
 /public/img
+/routes/web.php
