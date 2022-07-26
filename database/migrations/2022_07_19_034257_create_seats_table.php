@@ -17,7 +17,6 @@ return new class extends Migration
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('studio_id');
-            $table->unsignedBigInteger('playing_id');
             $table->integer('number');
             $table->enum('occupied', [0, 1]);
             $table->timestamps();

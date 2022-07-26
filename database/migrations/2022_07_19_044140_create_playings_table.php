@@ -17,10 +17,12 @@ return new class extends Migration
         Schema::create('playings', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('film_id');
-            $table->unsignedBigInteger('teater_id');
+            $table->unsignedBigInteger('theater_id');
             $table->unsignedBigInteger('studio_id');
             $table->date('date');
-            $table->time('time');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->integer('minute');
             $table->decimal('price');
             $table->timestamps();
         });

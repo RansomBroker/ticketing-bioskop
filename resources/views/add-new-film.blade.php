@@ -16,10 +16,16 @@
                         <div class="mb-3">
                             <label class="font-bold">Judul Film</label>
                             <input type="text" class="text-black w-full rounded p-1 focus:outline-amber-300 focus:outline focus:outline-2" id="Judul Film" name="title" placeholder="Judul Film ">
+                            @error('title')
+                            <p class="text-red-500 mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="font-bold">Sinposis Film</label>
                             <textarea class=" text-black w-full rounded p-1 focus:outline-amber-300 focus:outline focus:outline-2" id="Sinopsis" name="synopsis" placeholder="Sinopsis "></textarea>
+                            @error('synopsis')
+                            <p class="text-red-500 mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="font-bold">Genre</label>
@@ -29,18 +35,34 @@
                                 <option value="Comedy">Comedy</option>
                                 <option value="Action">Action</option>
                             </select>
+                            @error('genre')
+                            <p class="text-red-500 mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="font-bold">Produser</label>
                             <input type="text" class="text-black w-full rounded p-1 focus:outline-amber-300 focus:outline focus:outline-2" id="Producer" name="producer" placeholder="Producer ">
+                            @error('producer')
+                            <p class="text-red-500 mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="font-bold">Production</label>
                             <input type="text" class="text-black w-full rounded p-1 focus:outline-amber-300 focus:outline focus:outline-2" id="Production" name="production" placeholder="Production ">
+                            @error('production')
+                            <p class="text-red-500 mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="font-bold">Cast</label>
                             <input type="text" class="text-black w-full rounded p-1 focus:outline-amber-300 focus:outline focus:outline-2" id="Production" name="cast" placeholder="Cast ">
+                        </div>
+                        <div class="mb-3">
+                            <label class="font-bold">Trailer URL</label>
+                            <input type="text" class="text-black w-full rounded p-1 focus:outline-amber-300 focus:outline focus:outline-2" id="Production" name="url" placeholder="Trailer Url">
+                            @error('url')
+                            <p class="text-red-500 mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="font-bold">Rating Usia</label>
@@ -49,12 +71,18 @@
                                 <option value="2">R+13</option>
                                 <option value="3">D+18</option>
                             </select>
+                            @error('rating')
+                            <p class="text-red-500 mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <p class="font-bold">Cover Film</p>
                             <label class="block">
                                 <input type="file" class="block w-full text-sm text-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#CCB443] file:text-black hover:file:bg-[#FFC107]" name="cover"/>
                             </label>
+                            @error('cover')
+                            <p class="text-red-500 mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                         {{--  <div class="mb-3">
                             <p class="mb-0 font-bold">Tanggal Penayangan</p>

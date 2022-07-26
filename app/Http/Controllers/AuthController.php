@@ -61,32 +61,6 @@ class AuthController extends Controller
         return redirect('login');
     }
 
-    public function registerAdminProcess(Request $request)
-    {
-        // validasi form
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'username' => 'required',
-            'email' => 'required',
-            'password' => 'required|min:8',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect('post/create')
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        //mendaftarkan user
-        $user = new User();
-        $user->name = $request->name;
-        $user->username = $request->username;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->role = '1';
-        $user->save();
-    }
-
     public function logout(Request $request)
     {
         Auth::logout();

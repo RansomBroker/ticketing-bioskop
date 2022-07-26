@@ -9,9 +9,9 @@
 <body>
     <div class="flex flex-col min-h-screen bg-[url('/img/background.png')] bg-repeat">
         @include('includes.navbar')
-        <div class="w-full flex justfy-center p-8">
-            <div class=" text-center w-full mx-24 p-8 rounded bg-[#595959] bg-opacity-70 text-white drop-shadow-xl shadow-white">
-                <div class="mt-4 mb-3 text-justify  text-white text-md">
+        <div class="w-full flex justify-center md:p-8">
+            <div class=" text-center w-full md:mx-24 p-8 rounded bg-[#595959] bg-opacity-60 text-white drop-shadow-xl shadow-white">
+                <div class="mt-4 mb-3 text-justify text-white text-md">
                     <h1 class=" mb-8 text-xl text-center font-bold">KETENTUAN PENGGUNAAN
                             <br>
                         Website WWW.21CINEPLEX.COM

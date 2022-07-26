@@ -44,6 +44,10 @@
                     <input type="text" class="text-black w-full rounded p-1 focus:outline-amber-300 focus:outline focus:outline-2" id="Production" name="cast" placeholder="Cast " value="{{ $film->cast }}">
                 </div>
                 <div class="mb-3">
+                    <label class="font-bold">Trailer URL</label>
+                    <input type="text" class="text-black w-full rounded p-1 focus:outline-amber-300 focus:outline focus:outline-2" id="Production" name="url" placeholder="Trailer Url" value="{{ $film->url }}">
+                </div>
+                <div class="mb-3">
                     <label class="font-bold">Rating Usia</label>
                     <select class="text-black w-full rounded p-1 focus:outline-amber-300 focus:outline focus:outline-2" name="rating" id="">
                         <option value="1">SU</option>

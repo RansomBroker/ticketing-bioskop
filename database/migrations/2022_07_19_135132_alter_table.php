@@ -36,7 +36,7 @@ return new class extends Migration
                 ->onDelete('cascade');
         });
 
-        Schema::table('teaters', function (Blueprint $table) {
+        Schema::table('theaters', function (Blueprint $table) {
             $table
                 ->foreign('city_id')
                 ->references('id')
@@ -47,9 +47,9 @@ return new class extends Migration
 
         Schema::table('studios', function (Blueprint $table) {
             $table
-                ->foreign('teater_id')
+                ->foreign('theater_id')
                 ->references('id')
-                ->on('teaters')
+                ->on('theaters')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
@@ -59,13 +59,6 @@ return new class extends Migration
                 ->foreign('studio_id')
                 ->references('id')
                 ->on('studios')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-
-            $table
-                ->foreign('playing_id')
-                ->references('id')
-                ->on('playings')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
@@ -79,9 +72,9 @@ return new class extends Migration
                 ->onDelete('cascade');
 
             $table
-                ->foreign('teater_id')
+                ->foreign('theater_id')
                 ->references('id')
-                ->on('teaters')
+                ->on('theaters')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 

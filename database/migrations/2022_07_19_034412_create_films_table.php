@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('producer');
             $table->string('production');
             $table->string('cast');
+            $table->string('img');
+            $table->string('url');
             $table->enum('upcoming', ['0','1']);
             $table->timestamps();
         });

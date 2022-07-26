@@ -17,7 +17,8 @@ return new  class extends Migration
         Schema::create('studios', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('teater_id');
+            $table->integer('capacity');
+            $table->unsignedBigInteger('theater_id');
             $table->timestamps();
         });
     }

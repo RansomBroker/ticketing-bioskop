@@ -24,14 +24,43 @@ Route::middleware(['web'])->group(function () {
     Route::middleware(['admin.check'])->group(function () {
         Route::controller(AdminController::class)->group(function (){
 
+            // film
             Route::get('/edit-film/{id}', 'editFilmView');
             Route::post('/edit-film/process', 'editFilmProcess');
-
-
             Route::get('/add-new-film', 'addNewFilmView');
             Route::post('/add-new-film/process', 'addNewFilmProcess');
-
             Route::get('/list-film', 'listFilmView');
+            Route::get('/delete-film/{id}', 'deleteFilm');
+
+            //studio
+            Route::get('/studio-list', 'studioListView');
+            Route::get('/add-new-studio', 'addNewStudioView');
+            Route::get('/edit-studio/{id}', 'editStudioView');
+            Route::post('/add-new-studio/process', 'addNewStudioProcess');
+            Route::post('/edit-studio/process', 'editStudioProcess');
+
+            // admin
+            Route::get('/add-new-admin', 'addNewAdminView');
+            Route::get('/admin-list', 'adminListView');
+            Route::post('/add-new-admin/process', 'addNewAdminProcess');
+            Route::get('/admin-remove/{id}', 'adminRemove');
+
+            // list theater
+            Route::get('/theater-list', 'theaterListView');
+            Route::get('/add-new-theater', 'addNewTheaterView');
+            Route::get('/edit-theater/{id}', 'editTheaterView');
+            Route::post('/edit-theater/process', 'editTheaterProcess');
+            Route::post('/add-new-theater/process', 'addNewTheaterProcess');
+            Route::get('/theater-remove/{id}', 'removeTheater');
+
+
+            // city
+            Route::get('/city-list', 'cityListView');
+            Route::get('/add-new-city', 'addNewCityView');
+            Route::get('/edit-city/{id}', 'editCityView');
+            Route::post('/edit-city/process', 'editCityProcess');
+            Route::get('/delete-city/{id}', 'deleteCity');
+            Route::post('/add-new-city/process', 'addNewCityProcess');
         });
     });
 });
