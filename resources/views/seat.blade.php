@@ -22,6 +22,9 @@
                     <h5 class="mx-2">Thor</h5>
                     <h5 class="mx-2">27-07-2022 <span class="mx-2">|</span><span class="mx-2">15.00 </span></h5>
                 </div>
+                <div class="w-full ">
+
+                </div>
             </div>
         </div>
         @include('includes.footer')
