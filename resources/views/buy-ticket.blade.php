@@ -15,9 +15,9 @@
                 <div class="grid grid-cols-1  justify-center md:grid-cols-5 ">
                     <img class="" src="img/thor.jpeg" alt="">
                     <div class="md:col-span-2 md:px-6">               
-                    <h1 class="uppercase text-xl font-bold ">
-                        Thor : love and thunder
-                    </h1>
+                        <h1 class="uppercase text-xl font-bold ">
+                            Thor : love and thunder
+                        </h1>
                         <p class="align-middle py-3"><span class="iconify-inline inline" data-icon="bxs:time" style="color: #ccb443;" data-width="24"></span>199 Menit</p>
                         <span class="px-3 py-2 rounded-lg bg-[#2d5ad4] font-medium text-xs">R+13</span>
                     </div>
