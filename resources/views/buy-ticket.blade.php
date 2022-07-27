@@ -29,9 +29,17 @@
                             <div class="pl-2 ">26-7-2022</div>
                             <div class="pr-2"><span>Rp. 60.000</span></div>
                         </div>
-                        <div class="w-full pl-1 text-black text-sm  ">
-                            <a class=" border-2 rounded-lg" style="border-color: #337ab7; font-size:14px; margin-left:3px; margin-top:15px"href="">12.50</a>
-
+                        <div class="w-full flex flex-wrap flex-row ">
+                            <div class=" ml-1 mt-3"><a class="bg-white px-2 py-1 rounded text-black "href="">12.00</a></div>
+                            <div class=" ml-1 mt-3"><a class="bg-white px-2 py-1 rounded text-black "href="">12.00</a></div>
+                            <div class=" ml-1 mt-3"><a class="bg-white px-2 py-1 rounded text-black "href="">12.00</a></div>
+                            <div class=" ml-1 mt-3"><a class="bg-white px-2 py-1 rounded text-black "href="">12.00</a></div>
+                            <div class=" ml-1 mt-3"><a class="bg-white px-2 py-1 rounded text-black "href="">12.00</a></div>
+                            <div class=" ml-1 mt-3"><a class="bg-white px-2 py-1 rounded text-black "href="">12.00</a></div>
+                            <div class=" ml-1 mt-3"><a class="bg-white px-2 py-1 rounded text-black "href="">12.00</a></div>
+                            <div class=" ml-1 mt-3"><a class="bg-white px-2 py-1 rounded text-black "href="">12.00</a></div>
+                            <div class=" ml-1 mt-3"><a class="bg-white px-2 py-1 rounded text-black "href="">12.00</a></div>
+                            <div class=" ml-1 mt-3"><a class="bg-white px-2 py-1 rounded text-black "href="">12.00</a></div>
                         </div>
                         <br>
                         <div class="mx-2  border-b-2"></div>
