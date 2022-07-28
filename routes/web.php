@@ -102,4 +102,8 @@ Route::withoutMiddleware('web')->group(function () {
     Route::post('/login/process', [AuthController::class, 'loginProcess']);
 });
 
+Route::get('/buy-ticket',function(){
+    return view('buy-ticket');
+});
+
 
