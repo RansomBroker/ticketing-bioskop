@@ -18,11 +18,11 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->enum('rating', ['1','2','3']);
-            $table->string('synopsis');
+            $table->text('synopsis');
             $table->string('genre');
-            $table->string('producer');
-            $table->string('production');
-            $table->string('cast');
+            $table->text('producer');
+            $table->text('production');
+            $table->text('cast');
             $table->string('img');
             $table->string('url');
             $table->enum('upcoming', ['0','1']);

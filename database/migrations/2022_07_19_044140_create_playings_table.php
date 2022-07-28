@@ -21,8 +21,8 @@ return new class extends Migration
             $table->unsignedBigInteger('studio_id');
             $table->date('date');
             $table->time('start_time');
-            $table->time('end_time');
-            $table->integer('minute');
+            $table->time('end_time')->nullable();
+            $table->integer('duration');
             $table->decimal('price');
             $table->timestamps();
         });

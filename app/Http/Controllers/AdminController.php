@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Models\Film;
+use App\Models\Playing;
 use App\Models\Seat;
 use App\Models\Studio;
 use App\Models\Theater;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
@@ -303,5 +306,83 @@ class AdminController extends Controller
         $studio->save();
 
         return redirect('/studio-list');
+    }
+
+    public function playingListView()
+    {
+        $playings = Playing::with('theater.city', 'studio', 'film')->get();
+        $data['playings'] = $playings;
+        return view('list-playing', $data);
+    }
+
+    public function addNewPlayingView()
+    {
+        $films = Film::all();
+        $theaters = Theater::with("city")->get();
+        $data['theaters'] = $theaters;
+        $data['films'] = $films;
+        return view('add-new-playing', $data);
+    }
+
+    public function addNewPlayingProcess(Request $request)
+    {
+        // valditation
+        $validatior = $request->validate([
+            'film' => 'required',
+            'theater' => 'required',
+            'date' => 'required',
+            'time' => 'required|date_format:H:i:s',
+            'duration' => 'required|integer',
+            'price' => 'required|integer'
+        ]);
+
+        if (Carbon::now() < Carbon::create($request->date) ) {
+            return back()->with('status', "Maaf Anda tidak bisa melakukan pembuatan film pada tanggal sesudah hari ini");
+        }
+        // find studio that has same date
+        $studios = Playing::with('studio')
+                ->where('theater_id', $request->theater)
+                ->where('studio_id', $request->studio)
+                ->where('date', $request->date)
+                ->get();
+
+        $requestTime = explode(":", $request->time);
+        // compare
+        foreach ($studios as $studio ){
+            $studiosTime = explode(":", $studio->start_time);
+            if (
+                Carbon::createFromTime($requestTime[0], $requestTime[1], $requestTime[2])
+                >= Carbon::createFromTime($studiosTime[0], $studiosTime[1], $studiosTime[2])
+                && Carbon::createFromTime($requestTime[0], $requestTime[1], $requestTime[2])->addMinutes($request->duration)
+                <= Carbon::createFromTime($studiosTime[0], $studiosTime[1], $studiosTime[2])->addMinutes($studio->duration)
+            ) {
+                $startTime = $studio->start_time;
+                $endTime = Carbon::createFromTime($studiosTime[0], $studiosTime[1], $studiosTime[2])->addMinutes($studio->duration);
+                return back()->with('status', 'Maaf '.$studio->studio->name." sedang digunakan dari ".$startTime." s.d ".explode(" ", $endTime)[1]);
+            }
+        }
+
+        $film = Film::find($request->film);
+        $film->upcoming = 1;
+        $film->save();
+
+        $playing = new Playing();
+        $playing->film_id = $request->film;
+        $playing->studio_id = $request->studio;
+        $playing->theater_id = $request->theater;
+        $playing->date = $request->date;
+        $playing->start_time = $request->time;
+        $playing->duration = $request->duration;
+        $playing->price = $request->price;
+        $playing->save();
+
+        return redirect('/playing-list');
+    }
+
+    // api
+    public function getStudio($id)
+    {
+        $studios = Studio::whereRelation('theater', 'theater_id', $id)->get();
+        return response()->json($studios);
     }
 }

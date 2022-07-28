@@ -32,13 +32,16 @@
                             <div id="dropdownNavbarMenuList" class="hidden md:absolute z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                                 <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                                     <li>
-                                        <a href="{{ URL::to('/') }}" class="block py-2 pr-4 pl-3 font-bold uppercase" aria-current="page">Now Playing</a>
+                                        <a href="{{ URL::to('/') }}" class="block py-2 pr-4 pl-3 font-bold uppercase" aria-current="page">Home</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block py-2 pr-4 pl-3 font-bold uppercase" aria-current="page">Upcoming</a>
+                                        <a href="{{ URL::to('/now-playing') }}" class="block py-2 pr-4 pl-3 font-bold uppercase" aria-current="page">Now Playing</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block py-2 pr-4 pl-3 font-bold uppercase" aria-current="page">Theater</a>
+                                        <a href="{{ URL::to("/upcoming") }}" class="block py-2 pr-4 pl-3 font-bold uppercase" aria-current="page">Upcoming</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ URL::to('/theater') }}" class="block py-2 pr-4 pl-3 font-bold uppercase" aria-current="page">Theater</a>
                                     </li>
                                 </ul>
                             </div>
@@ -52,7 +55,7 @@
                                         <a href="{{URL::to('/list-film')}}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kelola Film</a>
                                     </li>
                                     <li>
-                                        <a href="{{ URL::to('/premier-list') }}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kelola Premier</a>
+                                        <a href="{{ URL::to('/playing-list') }}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kelola Playing Now</a>
                                     </li>
                                 </ul>
                             </div>

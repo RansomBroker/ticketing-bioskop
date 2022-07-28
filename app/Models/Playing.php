@@ -9,8 +9,21 @@ class Playing extends Model
 {
     use HasFactory;
 
-    public function films()
+    protected $fillable = ['film_id', 'theater_id', 'studio_id', 'start_time', 'duration', 'price'];
+
+    public function film()
     {
         return $this->belongsTo(Film::class);
     }
+
+    public function theater()
+    {
+        return $this->belongsTo(Theater::class);
+    }
+
+    public function studio()
+    {
+        return $this->belongsTo(Studio::class);
+    }
+
 }

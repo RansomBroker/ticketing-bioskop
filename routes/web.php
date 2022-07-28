@@ -24,13 +24,21 @@ Route::middleware(['web'])->group(function () {
     Route::middleware(['admin.check'])->group(function () {
         Route::controller(AdminController::class)->group(function (){
 
-            // film
+            // film upcoming
             Route::get('/edit-film/{id}', 'editFilmView');
             Route::post('/edit-film/process', 'editFilmProcess');
             Route::get('/add-new-film', 'addNewFilmView');
             Route::post('/add-new-film/process', 'addNewFilmProcess');
             Route::get('/list-film', 'listFilmView');
             Route::get('/delete-film/{id}', 'deleteFilm');
+
+            // playing film
+            Route::get('/playing-list', 'playingListView');
+            Route::get('/add-new-playing', 'addNewPlayingView');
+            // get studio api
+            Route::get('/get-studio/{id}', 'getStudio');
+            // process
+            Route::post('/add-new-playing/process', 'addNewPlayingProcess');
 
             //studio
             Route::get('/studio-list', 'studioListView');
