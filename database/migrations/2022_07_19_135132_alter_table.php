@@ -28,12 +28,6 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            $table
-                ->foreign('seat_id')
-                ->references('id')
-                ->on('seats')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
         });
 
         Schema::table('theaters', function (Blueprint $table) {

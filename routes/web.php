@@ -16,7 +16,29 @@ use App\Http\Controllers\IndexController;
 */
 
 Route::middleware(['web'])->group(function () {
-    Route::get('/', [IndexController::class, 'index']);
+
+    // theater list
+    Route::get('/theater-list', [AdminController::class, 'theaterListView']);
+
+    Route::controller(IndexController::class)->group(function () {
+        Route::get('/buy-ticket/{id}', 'buyTicketFilmView');
+        // api
+        Route::get('/get-playing-city/{id}/{filmiD}', 'getPlayingCity');
+
+        // seat
+        Route::get('/seat-selection/{id}', 'seatSelectionView');
+
+        // order
+        Route::post('/seat-selection/process', 'seatSelectedProcess');
+
+        // payment
+        Route::get('/payment', 'paymentView');
+        // create order
+        Route::get('/create-order', 'createOrder');
+
+        //history
+        Route::get('/history', 'historyView');
+    });
 
     // logout
     Route::get('logout', [AuthController::class, 'logout']);
@@ -39,6 +61,7 @@ Route::middleware(['web'])->group(function () {
             Route::get('/get-studio/{id}', 'getStudio');
             // process
             Route::post('/add-new-playing/process', 'addNewPlayingProcess');
+            Route::get('/delete-playing/{id}', 'deletePlaying');
 
             //studio
             Route::get('/studio-list', 'studioListView');
@@ -54,7 +77,6 @@ Route::middleware(['web'])->group(function () {
             Route::get('/admin-remove/{id}', 'adminRemove');
 
             // list theater
-            Route::get('/theater-list', 'theaterListView');
             Route::get('/add-new-theater', 'addNewTheaterView');
             Route::get('/edit-theater/{id}', 'editTheaterView');
             Route::post('/edit-theater/process', 'editTheaterProcess');
@@ -74,6 +96,11 @@ Route::middleware(['web'])->group(function () {
 });
 
 Route::withoutMiddleware('web')->group(function () {
+
+    Route::get('/', [IndexController::class, 'index']);
+    Route::get('/detail-film/{id}', [IndexController::class, 'detailFilmView']);
+    Route::get('/now-playing', [IndexController::class, 'nowPlayingView']);
+    Route::get('/upcoming', [IndexController::class, 'upcomingView']);
 
     Route::get('/term-of-use', function () {
         return view('terms-of-use');
@@ -100,10 +127,6 @@ Route::withoutMiddleware('web')->group(function () {
     Route::get('/register', [AuthController::class, 'registerUserView']);
     Route::get('/login', [AuthController::class, 'loginUserView']);
     Route::post('/login/process', [AuthController::class, 'loginProcess']);
-});
-
-Route::get('/buy-ticket',function(){
-    return view('buy-ticket');
 });
 
 

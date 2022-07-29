@@ -10,4 +10,6 @@
 <script src="{{ asset('js/list-studio.js') }}"></script>
 <script src="{{ asset('js/list-playing.js') }}"></script>
 <script src="{{ asset('js/add-new-playing.js') }}"></script>
+<script src="{{ asset('js/buy-ticket.js') }}"></script>
+<script src="{{ asset('js/seat.js') }}"></script>
 

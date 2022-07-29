@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use phpDocumentor\Reflection\Utils;
 
 class AdminController extends Controller
 {
@@ -48,7 +49,7 @@ class AdminController extends Controller
         $film->producer = $request->producer;
         $film->production = $request->production;
         $film->cast = $request->cast;
-        $film->upcoming = 1;
+        $film->upcoming = "1";
         $film->img = $imageName;
         $film->url = $request->url;
         $film->save();
@@ -73,7 +74,7 @@ class AdminController extends Controller
         $film->producer = $request->producer;
         $film->production = $request->production;
         $film->cast = $request->cast;
-        $film->upcoming = 1;
+        $film->upcoming = "0";
         $film->url = $request->url;
 
         if ($request->has('cover')) {
@@ -351,19 +352,21 @@ class AdminController extends Controller
         foreach ($studios as $studio ){
             $studiosTime = explode(":", $studio->start_time);
             if (
-                Carbon::createFromTime($requestTime[0], $requestTime[1], $requestTime[2])
-                >= Carbon::createFromTime($studiosTime[0], $studiosTime[1], $studiosTime[2])
-                && Carbon::createFromTime($requestTime[0], $requestTime[1], $requestTime[2])->addMinutes($request->duration)
-                <= Carbon::createFromTime($studiosTime[0], $studiosTime[1], $studiosTime[2])->addMinutes($studio->duration)
+                (Carbon::createFromTime($studiosTime[0], $studiosTime[1], $studiosTime[2]))
+                >= Carbon::createFromTime($requestTime[0], $requestTime[1], $requestTime[2])
+                &&
+                (Carbon::createFromTime($requestTime[0], $requestTime[1], $requestTime[2])->addMinutes($request->duration)
+                    <= Carbon::createFromTime($studiosTime[0], $studiosTime[1], $studiosTime[2])->addMinutes($studio->duration))
             ) {
                 $startTime = $studio->start_time;
                 $endTime = Carbon::createFromTime($studiosTime[0], $studiosTime[1], $studiosTime[2])->addMinutes($studio->duration);
-                return back()->with('status', 'Maaf '.$studio->studio->name." sedang digunakan dari ".$startTime." s.d ".explode(" ", $endTime)[1]);
+                return back()->with('status', 'Maaf '.$studio->studio->name." sedang digunakan");
             }
         }
 
+
         $film = Film::find($request->film);
-        $film->upcoming = 1;
+        $film->upcoming = "0";
         $film->save();
 
         $playing = new Playing();
@@ -384,5 +387,13 @@ class AdminController extends Controller
     {
         $studios = Studio::whereRelation('theater', 'theater_id', $id)->get();
         return response()->json($studios);
+    }
+
+    public function deletePlaying($id)
+    {
+        $playing = Playing::find($id);
+        $playing->delete();
+
+        return redirect('/playing-list');
     }
 }

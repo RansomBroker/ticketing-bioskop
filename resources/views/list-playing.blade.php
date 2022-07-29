@@ -20,13 +20,13 @@
                         <tr>
                             <th scope="col" class="py-3 px-6 dt-head-center">Poster FIlm</th>
                             <th scope="col" class="py-3 px-6 dt-head-center">Judul Film</th>
+                            <th scope="col" class="py-3 px-6 dt-head-center">Durasi</th>
                             <th scope="col" class="py-3 px-6 dt-head-center">Harga</th>
                             <th scope="col" class="py-3 px-6 dt-head-center">Genre</th>
                             <th scope="col" class="py-3 px-6 dt-head-center">Rating Usia</th>
                             <th scope="col" class="py-3 px-6 dt-head-center">Tayang</th>
                             <th scope="col" class="py-3 px-6 dt-head-center">Theater</th>
                             <th scope="col" class="py-3 px-6 dt-head-center">Studio</th>
-                            <th scope="col" class="py-3 px-6 dt-head-center">Jam Tayang</th>
                             <th scope="col" class="py-3 px-6 dt-head-center">Aksi</th>
                         </tr>
                     </thead>
@@ -37,33 +37,26 @@
                                     <img src="{{ asset('/img/'.$playing->film->img) }}" class="w-20">
                                 </td>
                                 <td>{{ $playing->film->title }}</td>
+                                <td>{{ $playing->duration }}</td>
                                 <td>Rp.{{ number_format($playing->price, 0, '.', '.') }}</td>
                                 <td>{{ $playing->film->genre }}</td>
                                 @if($playing->film->rating == 1)
-                                    <td><span class="py-1 px-2 bg-green-500 rounded-md text-xs font-semibold">SU</span></td>
+                                    <td><p class="py-1 px-2 bg-green-500 rounded-md text-xs font-semibold">SU</p></td>
                                 @endif
                                 @if($playing->film->rating == 2)
-                                    <td><span class="py-1 px-2 bg-blue-500 rounded-md text-xs font-semibold">R+13</span></td>
+                                    <td><p class="py-1 px-2 bg-blue-500 rounded-md text-xs font-semibold">R+13</p></td>
                                 @endif
                                 @if($playing->film->rating == 3)
                                     <td>
-                                        <span class="py-1 px-2 bg-red-500 rounded-md text-xs font-semibold">R+18</span>
+                                        <p class="py-1 px-2 bg-red-500 rounded-md text-xs font-semibold">R+18</p>
                                     </td>
                                 @endif
-                                <td>
-                                    @if($playing->film->upcoming == 0 )
-                                        <span class="py-1 px-2 bg-[#CCB443] rounded-md text-xs font-semibold">Upcoming</span>
-                                    @else
-                                        <span class="py-1 px-2 bg-green-500 rounded-md text-xs font-semibold">Playing Now</span>
-                                    @endif
-                                </td>
                                 <td>{{ $playing->theater->name }} - ({{$playing->theater->city->name}})</td>
                                 <td>{{ $playing->studio->name }}</td>
                                 <td>{{ $playing->start_time }}</td>
                                 <td>
                                     <div class="flex flex-col gap-x-3 align-middle justify-center md:flex-row ">
-                                        <a class="py-2 px-4 bg-[#CCB443] rounded hover:bg-[#ffc107]" href="{{URL::to('edit-film/'.$playing->id)}}">Edit</a>
-                                        <a class="py-2 px-4 bg-red-400 rounded hover:bg-red-500" href="{{ URL::to('/delete-film/'.$playing->id) }}">Hapus</a>
+                                        <a class="py-2 px-4 bg-red-400 rounded hover:bg-red-500" href="{{ URL::to('/delete-playing/'.$playing->id) }}">Hapus</a>
                                     </div>
                                 </td>
                             </tr>

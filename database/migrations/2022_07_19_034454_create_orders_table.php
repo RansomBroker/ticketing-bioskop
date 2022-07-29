@@ -18,7 +18,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('playing_id');
-            $table->unsignedBigInteger('seat_id');
+            $table->string('facture');
+            $table->integer('seat');
             $table->decimal('sub');
             $table->timestamps();
         });

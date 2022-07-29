@@ -46,7 +46,7 @@
                                     </td>
                                 @endif
                                 <td>
-                                    @if($film->upcoming == 0 )
+                                    @if($film->upcoming == 1 )
                                         <span class="py-1 px-2 bg-[#CCB443] rounded-md text-xs font-semibold">Upcoming</span>
                                     @else
                                         <span class="py-1 px-2 bg-green-500 rounded-md text-xs font-semibold">Playing Now</span>

@@ -9,17 +9,17 @@ class Order extends Model
 {
     use HasFactory;
 
-    public function playings()
+    public function playing()
     {
         return $this->belongsTo(Playing::class);
     }
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function seats()
+    public function seat()
     {
         return $this->belongsTo(Seat::class);
     }

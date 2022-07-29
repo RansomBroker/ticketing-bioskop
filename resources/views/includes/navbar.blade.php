@@ -10,15 +10,29 @@
         </button>
         <div class="navbar-toggle hidden w-full md:block md:w-auto" id="navbar-default">
             <ul class="flex flex-col mt-4 md:flex-row md:mt-0 md:text-sm md:font-medium">
+                @if(Auth::check() == false)
+                    <li>
+                        <a href="{{ URL::to('/now-playing') }}" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Now Playing</a>
+                    </li>
+                    <li>
+                        <a href="{{ URL::to("/upcoming") }}" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Upcoming</a>
+                    </li>
+                    <li>
+                        <a href="{{ URL::to('/theater-list') }}" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Theater</a>
+                    </li>
+                    <li>
+                        <a href="{{ URL::to('/profile')  }}" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Profile</a>
+                    </li>
+                @endif
                 @if(Auth::check() && Auth::user()->role == 0)
                     <li>
-                        <a href="{{ URL::to('/') }}" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Now Playing</a>
+                        <a href="{{ URL::to('/now-playing') }}" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Now Playing</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Upcoming</a>
+                        <a href="{{ URL::to("/upcoming") }}" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Upcoming</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Theater</a>
+                        <a href="{{ URL::to('/theater-list') }}" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Theater</a>
                     </li>
                     <li>
                         <a href="{{ URL::to('/profile')  }}" class="block py-2 pr-4 pl-3 text-white font-bold uppercase" aria-current="page">Profile</a>
@@ -41,7 +55,7 @@
                                         <a href="{{ URL::to("/upcoming") }}" class="block py-2 pr-4 pl-3 font-bold uppercase" aria-current="page">Upcoming</a>
                                     </li>
                                     <li>
-                                        <a href="{{ URL::to('/theater') }}" class="block py-2 pr-4 pl-3 font-bold uppercase" aria-current="page">Theater</a>
+                                        <a href="{{ URL::to('/theater-list') }}" class="block py-2 pr-4 pl-3 font-bold uppercase" aria-current="page">Theater</a>
                                     </li>
                                 </ul>
                             </div>
@@ -99,6 +113,10 @@
                             <li>
                                 <p class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                     Welcome, {{ Auth::user()->username }}</p>
+                            </li>
+                            <li>
+                                <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" href="{{ URL::to('/history') }}">
+                                    History Order</a>
                             </li>
                         </ul>
                     </div>

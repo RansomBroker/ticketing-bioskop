@@ -25,6 +25,7 @@ $('#dropdownNavbarOther').click(function () {
 $(document).mouseup(function (e) {
     let film = $("#dropdownNavbar");
     let menu = $("#dropdownNavbarMenuList");
+    let theater = $('#dropdownNavbarTeaterList');
     let admin = $("#dropdownNavbarUserdr");
     let other = $("#dropdownNavbarOtherList");
     if (!film.is(e.target) && film.has(e.target).length === 0) {
@@ -39,5 +40,9 @@ $(document).mouseup(function (e) {
     if (!other.is(e.target) && other.has(e.target).length === 0) {
         $("#dropdownNavbarOtherList").hide('fast');
     }
+    if (!theater.is(e.target) && theater.has(e.target).length === 0) {
+        $("#dropdownNavbarTeaterList").hide('fast');
+    }
+
 })
 
