@@ -29,7 +29,7 @@
                 </p>
                 @enderror
                 <div class="w-full overflow-x-auto">
-                    <div class="w-[1024px] bg-gray-400 flex flex-wrap">
+                    <div class="w-[1024px] bg-gray-400 flex flex-wrap text-black">
                         @for($i = 1; $i <= $seat->studio->capacity; $i++)
                             @foreach($order as $seatOccupied)
                                 @if($seatOccupied->seat == $i)
