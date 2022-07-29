@@ -31,12 +31,11 @@
                 <div class="w-full overflow-x-auto">
                     <div class="w-[1024px] bg-gray-400 flex flex-wrap text-black">
                         @for($i = 1; $i <= $seat->studio->capacity; $i++)
-                            @foreach($order as $seatOccupied)
-                                @if($seatOccupied->seat == $i)
-                                    <button type="button" class="toggle p-1 w-14 m-2 bg-white rounded-lg" id="{{$i}}">{{ $i }}</button>
-                                @endif
-                            @endforeach
+                            @if(in_array($i, $occupied))
+                                <button type="button" class="seat toggle p-1 w-14 m-2 bg-white rounded-lg" id="{{$i}}">{{ $i }}</button>
+                            @else
                                 <button type="button" class="seat toggle p-1 w-14 m-2 bg-[#34c218] rounded-lg" id="{{$i}}">{{ $i }}</button>
+                            @endif
                         @endfor
                     </div>
                 </div>

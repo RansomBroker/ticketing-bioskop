@@ -43,7 +43,7 @@ class IndexController extends Controller
 
     public function getPlayingCity($id, $filmId)
     {
-        $playing = Playing::with('studio', 'film', 'theater')       ->whereRelation('theater', 'city_id', $id)
+        $playing = Playing::with('studio', 'film', 'theater')->whereRelation('theater', 'city_id', $id)
             ->where('film_id', $filmId)
             ->where('date', explode(" ", Carbon::now())[0])
             ->get();
@@ -54,9 +54,13 @@ class IndexController extends Controller
     public function seatSelectionView($id)
     {
         $seat = Playing::with('studio', 'theater', 'film')->where('id', $id)->first();
-        $order = Order::where("playing_id", $id)->get();
+        $order = Order::where("playing_id", $id)->pluck('seat');
+        $occupied = [];
+        foreach ($order as $seats) {
+            $occupied[] = $seats;
+        };
         $data['seat'] = $seat;
-        $data['order'] = $order;
+        $data['occupied'] = $occupied;
         return view('seat', $data);
     }
 
